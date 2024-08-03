@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive YouTube Modal</title>
+    <title>Responsive Modals</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
-        /* Styles for the first modal */
-        .custom-modal-dialog-centered {
+        /* custom1 */
+        .custom1-modal-dialog-centered {
             display: flex !important;
             align-items: center !important;
             min-height: calc(100% - 1rem) !important;
-            margin: 0 auto !important; /* Center the modal */
+            margin: 0 auto !important;
         }
-        .custom-modal-content {
+        .custom1-modal-content {
             padding: 0 !important;
             border: none !important;
             margin: 0 !important;
             border-radius: 0 !important;
         }
-        .custom-modal-body {
+        .custom1-modal-body {
             padding: 0 !important;
             margin: 0 !important;
-            overflow: hidden !important; /* Prevent scrollbars */
+            overflow: hidden !important;
         }
-        .custom-iframe-container {
+        .custom1-iframe-container {
             width: 100% !important;
             position: relative !important;
-            padding-bottom: 56.25% !important; /* 16:9 aspect ratio */
+            padding-bottom: 56.25% !important;
             height: 0 !important;
             overflow: hidden !important;
         }
-        .custom-iframe-container iframe {
+        .custom1-iframe-container iframe {
             position: absolute !important;
             top: 0 !important;
             left: 0 !important;
@@ -40,18 +40,17 @@
             height: 100% !important;
             border: none !important;
         }
-        .custom-modal-footer {
+        .custom1-modal-footer {
             padding: 0 !important;
             margin: 0 !important;
-            border-top: none !important; /* Remove border-top to match the style */
+            border-top: none !important;
         }
-        .custom-close-btn {
+        .custom1-close-btn {
             width: 100% !important;
             border-radius: 0 !important;
         }
-        /* Media queries for responsiveness */
         @media (max-width: 576px) {
-            .custom-modal-dialog {
+            .custom1-modal-dialog {
                 width: 100% !important;
                 margin: 0 !important;
                 max-width: 100% !important;
@@ -60,51 +59,50 @@
             }
         }
         @media (min-width: 577px) and (max-width: 768px) {
-            .custom-modal-dialog {
+            .custom1-modal-dialog {
                 max-width: 90% !important;
             }
         }
         @media (min-width: 769px) and (max-width: 992px) {
-            .custom-modal-dialog {
-                max-width: 80% !important;
+            .custom1-modal-dialog {
+                max-width: 70% !important;
             }
         }
         @media (min-width: 993px) and (max-width: 1200px) {
-            .custom-modal-dialog {
-                max-width: 80% !important;
+            .custom1-modal-dialog {
+                max-width: 70% !important;
             }
         }
         @media (min-width: 1201px) {
-            .custom-modal-dialog {
-                max-width: 85% !important;
+            .custom1-modal-dialog {
+                max-width: 70% !important;
             }
         }
-
-        /* Styles for the second modal */
-        .custom1-modal-content {
+        /* custom2 */
+        .custom2-modal-content {
             padding: 0 !important;
             border: none !important;
             margin: 0 !important;
         }
-        .custom1-modal-body {
+        .custom2-modal-body {
             padding: 0 !important;
             margin: 0 !important;
             height: 100vh !important;
         }
-        .custom1-modal-footer {
+        .custom2-modal-footer {
             padding: 0 !important;
             margin: 0 !important;
         }
-        .custom1-close-btn {
+        .custom2-close-btn {
             width: 100% !important;
             border-radius: 0 !important;
         }
-        .custom1-iframe-container {
+        .custom2-iframe-container {
             width: 100% !important;
             height: 100% !important;
             position: relative !important;
         }
-        .custom1-iframe-container iframe {
+        .custom2-iframe-container iframe {
             position: absolute !important;
             top: 0 !important;
             left: 0 !important;
@@ -117,37 +115,37 @@
 <body>
     <div class="container mt-5">
         <h1>Responsive Modals</h1>
-        <a href="#" class="btn btn-primary custom-ytvideo-btn" data-toggle="modal" data-target="#customVideoModal" data-src="https://www.youtube.com/embed/6QPciuD46qE">Watch YouTube Video</a>
-        <a href="#" class="btn btn-secondary custom1-ytvideo-btn" data-toggle="modal" data-target="#custom1WebsiteModal">Watch Website Video</a>
+        <a href="#" class="btn btn-primary custom1-ytvideo-btn" data-toggle="modal" data-target="#custom1VideoModal" data-src="https://www.youtube.com/embed/6QPciuD46qE">Watch YouTube Video</a>
+        <a href="#" class="btn btn-primary custom2-ytvideo-btn" data-toggle="modal" data-target="#custom2WebsiteModal">Watch Website Video</a>
     </div>
 
-    <!-- First Modal -->
-    <div class="modal fade" id="customVideoModal" tabindex="-1" role="dialog" aria-labelledby="customVideoModalLabel" aria-hidden="true">
-        <div class="modal-dialog custom-modal-dialog-centered custom-modal-dialog" role="document">
-            <div class="custom-modal-content">
-                <div class="custom-modal-body">
-                    <div class="custom-iframe-container">
-                        <iframe id="custommodalYtvideo" allowfullscreen></iframe>
+    <!-- Modal for Custom1 -->
+    <div class="modal fade" id="custom1VideoModal" tabindex="-1" role="dialog" aria-labelledby="custom1VideoModalLabel" aria-hidden="true">
+        <div class="modal-dialog custom1-modal-dialog-centered custom1-modal-dialog" role="document">
+            <div class="modal-content custom1-modal-content">
+                <div class="modal-body custom1-modal-body">
+                    <div class="custom1-iframe-container">
+                        <iframe id="custom1modalYtvideo" allowfullscreen></iframe>
                     </div>
                 </div>
-                <div class="custom-modal-footer">
-                    <button type="button" class="btn btn-secondary custom-close-btn" data-dismiss="modal">Close</button>
+                <div class="modal-footer custom1-modal-footer">
+                    <button type="button" class="btn btn-secondary custom1-close-btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Second Modal -->
-    <div class="modal fade" id="custom1WebsiteModal" tabindex="-1" role="dialog" aria-labelledby="custom1WebsiteModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="custom1-modal-content">
-                <div class="custom1-modal-body">
-                    <div class="custom1-iframe-container">
+    <!-- Modal for Custom2 -->
+    <div class="modal fade" id="custom2WebsiteModal" tabindex="-1" role="dialog" aria-labelledby="custom2WebsiteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl custom2-modal-dialog" role="document">
+            <div class="modal-content custom2-modal-content">
+                <div class="modal-body custom2-modal-body">
+                    <div class="custom2-iframe-container">
                         <iframe src="https://web.microvera.co/rimpex-dev/microvera/projects/estimation/data_center.aspx?&repid=2&eid=33&pid=0&uid=7938&uk=20240801050828" allowfullscreen></iframe>
                     </div>
                 </div>
-                <div class="custom1-modal-footer">
-                    <button type="button" class="btn btn-secondary custom1-close-btn" data-dismiss="modal">Close</button>
+                <div class="modal-footer custom2-modal-footer">
+                    <button type="button" class="btn btn-secondary custom2-close-btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -160,17 +158,17 @@
     <script>
         $(document).ready(function () {
             var $videoSrc;
-            $(".custom-ytvideo-btn").click(function () {
+            $(".custom1-ytvideo-btn").click(function () {
                 $videoSrc = $(this).data("src");
             });
-            $("#customVideoModal").on("shown.bs.modal", function (e) {
-                $("#custommodalYtvideo").attr(
+            $("#custom1VideoModal").on("shown.bs.modal", function (e) {
+                $("#custom1modalYtvideo").attr(
                     "src",
                     $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0"
                 );
             });
-            $("#customVideoModal").on("hide.bs.modal", function (e) {
-                $("#custommodalYtvideo").attr("src", ""); // Remove the video source.
+            $("#custom1VideoModal").on("hide.bs.modal", function (e) {
+                $("#custom1modalYtvideo").attr("src", ""); // Remove the video source.
             });
         });
     </script>
