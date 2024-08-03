@@ -8,69 +8,74 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         .custom1-modal-dialog-centered {
-            display: flex;
-            align-items: center;
-            min-height: calc(100% - 1rem);
-            margin: 0 auto; /* Center the modal */
+            display: flex !important;
+            align-items: center !important;
+            min-height: calc(100% - 1rem) !important;
+            margin: 0 auto !important; /* Center the modal */
         }
         .custom1-modal-content {
-            padding: 0;
-            border: none;
-            margin: 0;
-            border-radius: 0;
+            padding: 0 !important;
+            border: none !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
         }
         .custom1-modal-body {
-            padding: 0;
-            margin: 0;
-            overflow: hidden; /* Prevent scrollbars */
+            padding: 0 !important;
+            margin: 0 !important;
+            overflow: hidden !important; /* Prevent scrollbars */
         }
         .custom1-iframe-container {
-            width: 100%;
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
+            width: 100% !important;
+            position: relative !important;
+            padding-bottom: 56.25% !important; /* 16:9 aspect ratio */
+            height: 0 !important;
+            overflow: hidden !important;
         }
         .custom1-iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            border: none !important;
         }
         .custom1-modal-footer {
-            padding: 0;
-            margin: 0;
-            border-top: none; /* Remove border-top to match the style */
+            padding: 0 !important;
+            margin: 0 !important;
+            border-top: none !important; /* Remove border-top to match the style */
         }
         .custom1-close-btn {
-            width: 100%;
-            border-radius: 0;
+            width: 100% !important;
+            border-radius: 0 !important;
         }
         /* Media queries for responsiveness */
         @media (max-width: 576px) {
             .custom1-modal-dialog {
-                width: 100%;
-                margin: 0;
-                max-width: 100%;
-                height: 100%;
-                padding: 0;
+                width: 100% !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+                height: 100% !important;
+                padding: 0 !important;
             }
         }
         @media (min-width: 577px) and (max-width: 768px) {
             .custom1-modal-dialog {
-                max-width: 90%;
+                max-width: 90% !important;
             }
         }
         @media (min-width: 769px) and (max-width: 992px) {
             .custom1-modal-dialog {
-                max-width: 80%;
+                max-width: 70% !important;
             }
         }
-        @media (min-width: 993px) {
+        @media (min-width: 993px) and (max-width: 1200px) {
             .custom1-modal-dialog {
-                max-width: 70%;
+                max-width: 70% !important;
+            }
+        }
+        @media (min-width: 1201px) {
+            .custom1-modal-dialog {
+                max-width: 70% !important;
             }
         }
     </style>
@@ -83,7 +88,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="custom1VideoModal" tabindex="-1" role="dialog" aria-labelledby="custom1VideoModalLabel" aria-hidden="true">
-        <div class="modal-dialog custom1-modal-dialog-centered" role="document">
+        <div class="modal-dialog custom1-modal-dialog-centered custom1-modal-dialog" role="document">
             <div class="modal-content custom1-modal-content">
                 <div class="modal-body custom1-modal-body">
                     <div class="custom1-iframe-container">
