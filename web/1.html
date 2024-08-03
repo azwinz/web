@@ -78,16 +78,16 @@
 <body>
     <div class="container mt-5">
         <h1>Responsive YouTube Modal</h1>
-        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#youtubeModal">Watch Video</a>
+        <a href="#" class="btn btn-primary intro-ytvideo-btn" data-toggle="modal" data-target="#introVideoModal" data-src="https://www.youtube.com/embed/6QPciuD46qE">Watch Video</a>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="youtubeModal" tabindex="-1" role="dialog" aria-labelledby="youtubeModalLabel" aria-hidden="true">
+    <div class="modal fade" id="introVideoModal" tabindex="-1" role="dialog" aria-labelledby="introVideoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="iframe-container">
-                        <iframe src="https://www.youtube.com/embed/6QPciuD46qE" allowfullscreen></iframe>
+                        <iframe id="intromodalYtvideo" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -101,5 +101,22 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var $videoSrc;
+            $(".intro-ytvideo-btn").click(function () {
+                $videoSrc = $(this).data("src");
+            });
+            $("#introVideoModal").on("shown.bs.modal", function (e) {
+                $("#intromodalYtvideo").attr(
+                    "src",
+                    $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0"
+                );
+            });
+            $("#introVideoModal").on("hide.bs.modal", function (e) {
+                $("#intromodalYtvideo").attr("src", ""); // Remove the video source.
+            });
+        });
+    </script>
 </body>
 </html>
