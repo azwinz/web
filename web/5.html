@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade Plan</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .popupxyz-content {
+            background-color: #fefefe;
+            margin: 1% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .card-header {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header span {
+            font-size: 1.25rem;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .btn-upgrade {
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            color: white;
+            font-size: 0.75rem !important;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        .price-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 576px) {
+            .col-md-4 {
+                margin-bottom: 15px;
+            }
+        }
+
+        .list-unstyled li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .list-unstyled li i {
+            margin-right: 10px;
+            color: #0196b6;
+        }
+
+        .loadingxp {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loadingxp .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .module-check {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+
+        .module-check label {
+            color: white;
+            margin-left: 10px;
+        }
+
+        .form-check-input[disabled] {
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+<div id="popupxyz" class="popupxyz">
+    <div class="popupxyz-content">
+        <div class="card price-card">
+            <div class="loadingxp hidden" id="loading">
+                <div class="spinner-border text-light" role="status">
+                    <span class="sr-only">loading...</span>
+                </div>
+            </div>
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span>Upgrade your plan</span>
+                <div class="d-flex align-items-center">
+                    <img style="height: 26px;" src="assets/pictures/app-logo_dark.png" alt="MICROVERA">
+                    <span class="close-btn">&times;</span>
+                </div>
+            </div>
+            <div style="background-color: #28a745; display: flex; padding: 10px; flex-wrap: wrap; justify-content: space-around;">
+                <div class="module-check">
+                    <label style="color: white; font-size: 30px;" class="form-check-label" for="estimation">Modules</label>
+                </div>
+                <div class="module-check">
+                    <input class="form-check-input" type="checkbox" id="estimation" checked disabled />
+                    <label class="form-check-label" for="estimation">Estimation</label>
+                </div>
+                <div class="module-check">
+                    <input class="form-check-input" type="checkbox" id="projectManagement" />
+                    <label class="form-check-label" for="projectManagement">Project Management</label>
+                </div>
+                <div class="module-check">
+                    <input class="form-check-input" type="checkbox" id="collaboration" disabled />
+                    <label class="form-check-label" for="collaboration">Collaboration</label>
+                </div>
+                <div class="module-check">
+                    <input class="form-check-input" type="checkbox" id="constructionERP" disabled />
+                    <label class="form-check-label" for="constructionERP">Construction ERP</label>
+                </div>
+            </div>
+            <div class="card-body price-card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card text-center price-card">
+                            <div class="card-header">
+                                <span style="background-color: #6c757d;" class="badge">Basic (Free)</span>
+                            </div>
+                            <div class="card-body price-card-body">
+                                <h5 class="card-title">USD $0/month</h5>
+                                <button class="btn btn-secondary btn-upgrade" disabled>Your current plan</button>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li><i class="fas fa-check"></i>Everything in Standard, and:</li>
+                                    <li><i class="fas fa-check"></i>Up to 100 projects</li>
+                                    <li><i class="fas fa-check"></i>Floors up to 25</li>
+                                    <li><i class="fas fa-check"></i>Risk Assessment</li>
+                                    <li><i class="fas fa-check"></i>4D simulation</li>
+                                    <li><i class="fas fa-check"></i>Generate Contract</li>
+                                    <li><i class="fas fa-check"></i>Baseline Scheduler</li>
+                                    <li><i class="fas fa-check"></i>Resource Profiles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center price-card">
+                            <div class="card-header">
+                                <span style="background-color: #28a745;" class="badge">Standard</span>
+                            </div>
+                            <div class="card-body price-card-body">
+                                <h5 id="standardPrice" class="card-title">USD $20/month</h5>
+                                <button class="btn btn-outline-success btn-upgrade">Upgrade to Standard</button>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li><i class="fas fa-check"></i>Everything in Standard, and:</li>
+                                    <li><i class="fas fa-check"></i>Up to 100 projects</li>
+                                    <li><i class="fas fa-check"></i>Floors up to 25</li>
+                                    <li><i class="fas fa-check"></i>Risk Assessment</li>
+                                    <li><i class="fas fa-check"></i>4D simulation</li>
+                                    <li><i class="fas fa-check"></i>Generate Contract</li>
+                                    <li><i class="fas fa-check"></i>Baseline Scheduler</li>
+                                    <li><i class="fas fa-check"></i>Resource Profiles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center price-card">
+                            <div class="card-header">
+                                <span style="background-color: #007bff;" class="badge">Enterprise</span>
+                            </div>
+                            <div class="card-body price-card-body">
+                                <h5 id="enterprisePrice" class="card-title">USD $50/month</h5>
+                                <button class="btn btn-outline-primary btn-upgrade">Upgrade to Enterprise</button>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li><i class="fas fa-check"></i>Everything in Standard, and:</li>
+                                    <li><i class="fas fa-check"></i>Up to 100 projects</li>
+                                    <li><i class="fas fa-check"></i>Floors up to 25</li>
+                                    <li><i class="fas fa-check"></i>Risk Assessment</li>
+                                    <li><i class="fas fa-check"></i>4D simulation</li>
+                                    <li><i class="fas fa-check"></i>Generate Contract</li>
+                                    <li><i class="fas fa-check"></i>Baseline Scheduler</li>
+                                    <li><i class="fas fa-check"></i>Resource Profiles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <p>Have an existing plan? See <a href="#">billing help</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a id="open-popupxyz" class="nav-link page-scroll" href="#">Pricing</a>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    const projectManagementCheckbox = document.getElementById('projectManagement');
+    const collaborationCheckbox = document.getElementById('collaboration');
+    const constructionERPCheckbox = document.getElementById('constructionERP');
+
+    const standardPriceElement = document.getElementById('standardPrice');
+    const enterprisePriceElement = document.getElementById('enterprisePrice');
+
+    let baseStandardPrice = 10;
+    let baseEnterprisePrice = 25;
+
+    function calculatePrices() {
+        let standardPrice = baseStandardPrice;
+        let enterprisePrice = baseEnterprisePrice;
+
+        if (projectManagementCheckbox.checked) {
+            standardPrice += 7;
+            enterprisePrice += 14;
+        }
+
+        if (collaborationCheckbox.checked) {
+            standardPrice += 5;
+            enterprisePrice += 10;
+        }
+
+        if (constructionERPCheckbox.checked) {
+            standardPrice += 8;
+            enterprisePrice += 16;
+        }
+        standardPriceElement.innerText = `USD $${standardPrice}/month`;
+        enterprisePriceElement.innerText = `USD $${enterprisePrice}/month`;
+    }
+
+    function showLoading() {
+        document.getElementById('loading').classList.remove('hidden');
+        setTimeout(() => {
+            document.getElementById('loading').classList.add('hidden');
+        }, 500);
+    }
+
+    projectManagementCheckbox.addEventListener('change', () => {
+        showLoading();
+        if (!projectManagementCheckbox.checked) {
+            collaborationCheckbox.disabled = true;
+            collaborationCheckbox.checked = false;
+            constructionERPCheckbox.disabled = true;
+            constructionERPCheckbox.checked = false;
+        } else {
+            collaborationCheckbox.disabled = false;
+        }
+        calculatePrices();
+    });
+
+    collaborationCheckbox.addEventListener('change', () => {
+        showLoading();
+        if (!collaborationCheckbox.checked) {
+            constructionERPCheckbox.disabled = true;
+            constructionERPCheckbox.checked = false;
+        } else {
+            constructionERPCheckbox.disabled = false;
+        }
+        calculatePrices();
+    });
+
+    constructionERPCheckbox.addEventListener('change', () => {
+        showLoading();
+        calculatePrices();
+    });
+
+    calculatePrices();
+
+    const openpopupxyzButton = document.getElementById('open-popupxyz');
+    const popupxyz = document.getElementById('popupxyz');
+    const closepopupxyzButton = popupxyz.querySelector('.close-btn');
+
+    openpopupxyzButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        popupxyz.classList.add('active');
+        popupxyz.style.display = 'block';
+    });
+
+    closepopupxyzButton.addEventListener('click', () => {
+        popupxyz.classList.remove('active');
+        popupxyz.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === popupxyz) {
+            popupxyz.classList.remove('active');
+            popupxyz.style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>
